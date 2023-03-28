@@ -9,7 +9,6 @@ import {
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
-    faCloudUpload,
     faUser,
     faCoins,
     faGear,
@@ -25,6 +24,9 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import images from '~/assets/images';
 import AccountItem from '~/components/Layout/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
+
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
     {
@@ -133,7 +135,7 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload}></FontAwesomeIcon>
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -145,11 +147,12 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://scontent.frix7-1.fna.fbcdn.net/v/t1.6435-9/118404068_944685149358125_815730237661367438_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_eui2=AeE4d_Y2J4h4JDtTXT_eJksGAJc8Q6HwN5gAlzxDofA3mOgKanuU-fkHDrKH8qc_pbeGXAIK1vA88ph514z6GRkG&_nc_ohc=UlodrOttT1IAX_NrAgr&_nc_ht=scontent.frix7-1.fna&oh=00_AfBeyhAukfiHoNE2TQhUIVU25YqnxvDftgGw6DDDzxI30g&oe=64496721"
                                 alt="Do Manh Kiem"
-                            ></img>
+                                fallback="https://yt3.ggpht.com/UsflU74uvka_3sejOu3LUGwzOhHJV0eIYoWcvOfkOre_c12uIN4ys-QqRlAkbusEmbZjTA-b=s48-c-k-c0x00ffffff-no-rj"
+                            />
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
